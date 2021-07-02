@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getUserChoice = userInput => {
+            userInput = userInput.toLowerCase();
+            if(userInput === "rock" || userInput === "paper" || userInput === "scissors"){
+                return userInput;
+            } else {
+                console.log("Error!");
+            }
+    };
+const getComputerChoice = () => {
+    switch(Math.floor(Math.random() * 2)) {
+        case 0:
+            return "rock";
+            
+            break;
+        case 1:
+            return "paper";
+
+            break;
+        case 2: 
+            break;
+            return "scissors";
+    
+        default:
+            break;
+    };
+}
+
+function determineWinner(userChoice,computerChoice) {
+    if(computerChoice === userChoice){
+        return "equality";
+    } else if(userChoice === "rock"){
+        if(computerChoice === "paper"){
+            return "Computer wins!";
+        } else {
+            return "Congrats, You win!";
+        }
+    } else if(userChoice === "paper"){
+        if(computerChoice === "scissors"){
+            return "Computer wins!";
+        } else {
+            return "Congrats, You win!";
+        }
+    } else if(userChoice === "scissors"){
+        if(computerChoice === "rock"){
+            return "Computer wins!";
+        } else {
+            return  "Congrats, You win!";
+        }
+    }
+};
+
+
+function playGame() {
+    let userChoice = getUserChoice("scissors");
+    console.log(userChoice);
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    console.log(determineWinner(userChoice, computerChoice));
+}
+    playGame();
+    </script>
+</body>
+</html>
